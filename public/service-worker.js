@@ -1,3 +1,11 @@
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+      navigator.serviceWorker.register('service-worker.js').then(reg => {
+         console.log('Hello world from service-worker.js!')
+      });
+  });
+}
+
 const FILES_TO_CACHE = [
   "/",
   "/index.html",
