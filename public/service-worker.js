@@ -2,7 +2,11 @@ const FILES_TO_CACHE = [
   "/",
   "/index.html",
   "/style.css",
-  "/dist/bundle.js"
+  "/manifest.webmanifest",
+  "/index.js",
+  "icons/icon-192x192.png",
+  "icons/icon-512x512.png",
+  "https://cdn.jsdelivr.net/npm/chart.js@2.8.0",
 ];
 
 const STATIC_CACHE = "static-cache-v1";
@@ -51,7 +55,7 @@ self.addEventListener("fetch", event => {
   }
 
   // handle runtime GET requests for data from /api routes
-  if (event.request.url.includes("/api/images")) {
+  if (event.request.url.includes("/api/transactions")) {
     // make network request and fallback to cache if network request fails (offline)
     event.respondWith(
       caches.open(RUNTIME_CACHE).then(cache => {

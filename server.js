@@ -23,6 +23,9 @@ mongoose.connect("mongodb://localhost/budget", {
 // routes
 app.use(require("./routes/api.js"));
 
+mongoose.connect(process.env.MONGODB_URI || "mongodb://TheFarrier:Password1@ds347298.mlab.com:47298/heroku_sxbdh51b");
+
+
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
 });
